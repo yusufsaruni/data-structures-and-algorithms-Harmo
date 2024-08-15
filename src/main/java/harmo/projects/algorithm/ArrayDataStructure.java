@@ -16,6 +16,7 @@ public class ArrayDataStructure {
         int j = 0; //to keep track of the index of elements with zeros only.
         // Note: j can only be incremented if the value of the elements bearing this
         //index is not zero(0). If it is zero, we don't perform any increment.
+        //i) will focus on non-zeros
         for(int i = 0; i < n; i++) {
             if(array[i] != 0 && array[j]==0){
                 //in this case, we do the swap
