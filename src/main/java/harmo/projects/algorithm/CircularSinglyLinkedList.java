@@ -33,11 +33,12 @@ public class CircularSinglyLinkedList {
         list.insertLastInCircularLinkedList(10);
         list.insertLastInCircularLinkedList(20);
         list.insertLastInCircularLinkedList(30);
+        list.insertLastInCircularLinkedList(40);
+        list.insertLastInCircularLinkedList(50);
 
-        System.out.println("Deleted(First): " + list.deleteFirst());
-        System.out.println("Deleted(First): " + list.deleteFirst());
-//        System.out.println("Deleted(First): " + list.deleteFirst());
-//        System.out.println("Deleted(First): " + list.deleteFirst());
+        System.out.println("Delete(Last): " + list.deleteLast());
+        list.displayCircularLinkedList();
+        System.out.println("Delete(Last): " + list.deleteLast());
         list.displayCircularLinkedList();
     }
 
@@ -54,6 +55,28 @@ public class CircularSinglyLinkedList {
 //            temp.next = null;
         }
         length --;
+        return result;
+    }
+
+    private int deleteLast(){
+        if(isEmpty()){
+            throw new NoSuchElementException("Circular singly linked list is empty");
+        }
+        //Getting the previous element before the last(BeforeLast variable)
+        ListNode beforeLast = last.next;
+        while(beforeLast.next != last){
+            beforeLast = beforeLast.next;
+        }
+        //Result is the current element to be removed.
+        int result = last.data;
+        if(last.next == last){
+            last = null;
+        }else {
+            beforeLast.next = last.next;
+            //Setting the new last to the element before the removed one
+            last = beforeLast;
+        }
+        length--;
         return result;
     }
 
