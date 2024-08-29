@@ -21,6 +21,11 @@ public class BinarySearchTree {
         tree.insert(7);
         tree.insert(1);
         tree.inOrder();
+        if(tree.isValid(tree.root, Integer.MIN_VALUE,Integer.MAX_VALUE)) {
+            System.out.println("Tree is valid");
+        }else{
+            System.out.println("Tree is not valid");
+        }
 
 
         if(tree.search(10) != null){
@@ -33,6 +38,24 @@ public class BinarySearchTree {
         }else{
             System.out.println("Key not found");
         }
+    }
+    private boolean isValid(BinaryTreeNode root, long min, long max) {
+        if(root == null){
+            return true;
+        }
+
+        if(root.data <= min || root.data >= max){
+            return false;
+        }
+        //The maximum is the set to the root's data since all the other nodes
+        // should have a value that is less than the nodes data.
+        boolean left = isValid(root.left,min, root.data);
+        if(left){
+            //Minimum is set to the root data since all the nodes should
+            //be greater than the root's data.
+            return isValid(root.right,root.data,max);
+        }
+        return false;
     }
 
     private BinaryTreeNode search(int key) {
