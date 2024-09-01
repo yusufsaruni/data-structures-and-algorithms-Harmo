@@ -20,6 +20,7 @@ public class SortElements {
         int[] myArray2 = {3, 4, 9};
         var result = sortElements.merge(array1, myArray2);
         sortElements.printArray(result);
+        System.out.println("-".repeat(40));
     }
 
     private int[] merge(int[] arr1, int[] arr2) {
