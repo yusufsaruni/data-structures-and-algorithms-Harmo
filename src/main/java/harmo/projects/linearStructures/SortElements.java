@@ -16,6 +16,34 @@ public class SortElements {
         int[] array2 = {3, 10, 1, 4, 23, 2};
         sortElements.selectionSort(array2);
         sortElements.printArray(array2);
+        int[] array1 = {2, 5, 7};
+        int[] myArray2 = {3, 4, 9};
+        var result = sortElements.merge(array1, myArray2);
+        sortElements.printArray(result);
+    }
+
+    private int[] merge(int[] arr1, int[] arr2) {
+        int n = arr1.length;
+        int m = arr2.length;
+        int[] res = new int[n + m];
+        int i = 0, j = 0, k = 0;
+        //this while loop exists if either of the array is exhausted. 
+        while(i < n && j < m) {
+            if(arr1[i] < arr2[j]) {
+                res[k++] = arr1[i++];
+            }else{
+                res[k++] = arr2[j++];
+            }
+        }
+        //this two while loops are here to copy the leftovers elements
+        //just in case either of the array is not exhausted.
+        while(i < n) {//arr2 got exhausted first.
+            res[k++] = arr1[i++];//storing the remaining arr1 into the result.
+        }
+        while(j < m) {//arr1 got exhausted first
+            res[k++] = arr2[j++];//storing the remaining arr2 into the result.
+        }
+        return res;
     }
     private void selectionSort(int[] unSortedArr) {
         int n = unSortedArr.length;
@@ -29,9 +57,9 @@ public class SortElements {
                 }
             }
             //swapping the minimum with the leftmost(denoted by i)
-            int temp = unSortedArr[i];
-            unSortedArr[i] = unSortedArr[minIndex];
-            unSortedArr[minIndex] = temp;
+            int temp = unSortedArr[minIndex];
+            unSortedArr[minIndex] = unSortedArr[i];
+            unSortedArr[i] = temp;
         }
     }
 
