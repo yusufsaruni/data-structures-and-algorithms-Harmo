@@ -14,8 +14,7 @@ public class BinarySearch {
             System.out.println("Not found, to insert at index ["+pos+"]");
         }
     }
-
-
+//this is just a comment and don't mind about it
     private static int searchInsert(int[] arr, int target) {
         int low = 0;
         int high = arr.length - 1;
