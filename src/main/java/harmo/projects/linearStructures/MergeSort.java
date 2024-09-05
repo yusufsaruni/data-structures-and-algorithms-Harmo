@@ -1,9 +1,8 @@
 package harmo.projects.linearStructures;
 
-import Harmo.customConsole.Colour;
 
 public class MergeSort {
-    private static final Colour system = new Colour();
+  
 
     public static void main(String[] args) {
         int[] array = new int[]{9, 5, 2, 4, 3};
@@ -15,7 +14,7 @@ public class MergeSort {
 
     public void printArray(int[] arr) {
         for(var arr1 : arr) {
-            system.printMagenta(arr1 + " ",false);
+            System.out.print(arr1 + " ");
         }
     }
 

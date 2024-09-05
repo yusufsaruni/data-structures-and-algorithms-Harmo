@@ -1,16 +1,21 @@
 package harmo.projects.linearStructures;
-
-import Harmo.customConsole.Colour;
+import java.util.Random;
 
 public class QuickSort {
 
-    private static final Colour System = new Colour();
 
     public static void main(String[] args) {
         int[] unsorted = {10, 3, 7,2, 3, 8, 11};
         QuickSort quickSort = new QuickSort();
         quickSort.sort(unsorted, 0, unsorted.length - 1);
         printArray(unsorted);
+        getRandomNumber();
+
+    }
+    private static void getRandomNumber(){
+      var random = new Random();
+      int randomNumber = random.nextInt();
+      System.out.println(randomNumber);
     }
     public void sort(int[] arr, int low, int high){
         if(low < high){//base case
@@ -36,9 +41,10 @@ public class QuickSort {
         }
         return j - 1;
     }
+  
     public static void printArray(int[] arr) {
         for(var value: arr){
-            System.printMagenta(value + " ", false);
+            System.out.print(value + " ");
         }
     }
 }
