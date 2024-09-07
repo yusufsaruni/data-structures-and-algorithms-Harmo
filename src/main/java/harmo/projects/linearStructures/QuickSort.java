@@ -1,5 +1,6 @@
 package harmo.projects.linearStructures;
-import java.util.Random;
+import java.util.ArrayList;
+import java.util.List;
 
 public class QuickSort {
 
@@ -13,9 +14,10 @@ public class QuickSort {
 
     }
     private static void getRandomNumber(){
-      var random = new Random();
-      int randomNumber = random.nextInt();
-      System.out.println(randomNumber);
+        List<String> myList = new ArrayList<>();
+        myList.add("1");
+        myList.add("2");
+        myList.forEach(System.out::println);
     }
     public void sort(int[] arr, int low, int high){
         if(low < high){//base case
